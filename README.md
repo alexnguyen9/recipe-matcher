@@ -28,5 +28,5 @@ The file outputs the pickle files:
 `main_data.pkl` is the dataframe that contains the recipe title, ingredients, and instructions
 
 ## Step 2
-You can deploy the flask app locally by running:
+The flask requires the 3 previous pickle files first. You can then deploy the flask app locally by running:
  `python app.py`
