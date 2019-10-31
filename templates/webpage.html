@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Recipe Matcher</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+		<script type="text/javascript">// <![CDATA[
+        function loading(){
+		
+			var x = $("input[name='ingredients']").val();
+			if (!x){return false}
+			
+		
+            $("#loading").show();
+            $("#content").hide();       
+        }
+// ]]></script>
+
+
+	<nav class="navbar navbar-fixed-top navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="https://alexnguyen9.github.io/">Home</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+			<li><a href="https://alexnguyen9.github.io/project/recipematcher/">How it works</a></li>
+			<!-- <li><a href="#">hello</a></li> -->
+		  </ul>
+		  
+
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	</head>
+
+	<body>
+    	<div id="loading"></div>
+	
+		<div class="login">
+		<h1> Recipe Finder</h1>
+		<p> Tell me what you have in your fridge, and I'll find you a recipe with similar ingredients </p>
+		
+		<form action="{{ url_for('predict') }}" method="post">
+		
+		
+		<!-- <input type="text" name="ingredients" placeholder="Type your ingredients here!" required="required"> -->
+		
+        <div class="form-group">
+		<input class="form-control form-control-lg" type="text" name = "ingredients" placeholder="Type your ingredients here separated by a comma (Ex. rice, eggs, chicken, salt, pepper, garlic)" required = "required" value="{{inputstring}}">
+        </div>
+
+        <div class="form-group">
+		<button type="submit" class="btn btn-primary btn-large btn-block" onclick="loading();">Predict</button>
+        </div>
+				
+		</form>
+
+		</div>	
+		
+		<br>
+       {% block body %}{% endblock %}
+	</body>
+
+</html>
+

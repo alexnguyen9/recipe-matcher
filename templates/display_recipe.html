@@ -1,0 +1,38 @@
+{% extends "webpage.html" %}
+
+{% block body %}
+        
+        <div class="recipe">
+        
+        <form action="{{ url_for('next') }}" method="POST">
+        <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+          <div class="btn-group" role="group">
+            <button type="submit" name = "Submit" value = "prev" class="btn btn-default" {{ 'disabled' if  page == 0 }}>Previous</button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="submit" name = "Submit" value = "next" class="btn btn-default">Next</button>
+          </div>
+        </div>
+        </form>
+               
+        <p>
+        <p> <b> Result:  {{ page + 1 }} </b> </p>
+		<p style="font-size:20px;"> <b> Recipe Title:  {{ recipe_title }} </b> </p>
+		<p> Recipe Instructions:  {{ recipe_instructions }} </p>
+		<p> Recipe Ingredients: 
+		<ul>
+    		{% for i in recipe_ingredients %} 
+        		<li> {{i}} </li>
+        	{% endfor %}
+		</ul> 
+		</p>
+		<p> Source: <a href="{{ source }}" target="_blank">{{ source }}</a> </p>
+		
+		
+	   
+       <!-- <input type="submit" value="Next" name="Submit" /> -->
+       
+       </div>
+		
+{% endblock %}
+
