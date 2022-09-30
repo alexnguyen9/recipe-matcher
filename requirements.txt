@@ -3,7 +3,7 @@ Click==7.0
 Flask==1.1.1
 itsdangerous==1.1.0
 Jinja2==2.10.3
-joblib==0.13.2
+joblib==1.2.0
 MarkupSafe==1.1.1
 mkl-fft==1.0.14
 mkl-random==1.1.0
